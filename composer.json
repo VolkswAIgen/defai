@@ -1,0 +1,22 @@
+{
+	"name": "volkswaigen/defai",
+	"description": "Provide dedicated content just for AI bots.",
+	"type": "wordpress-plugin",
+	"require": {
+		"volkswaigen/volkswaigen": "^0.1.1"
+	},
+	"license": ["GPL-3.0-or-later"],
+	"autoload": {
+		"psr-4": {
+			"Volkswaigen\\DefAI\\": "src/"
+		}
+	},
+	"authors": [{
+		"name": "Andreas Heigl",
+		"email": "andreas@stella-maris.solutions",
+		"role": "Maintainer"
+	}],
+	"config": {
+		"sort-packages": true
+	}
+}

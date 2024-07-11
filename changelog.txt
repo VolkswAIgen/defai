@@ -1,0 +1,5 @@
+== 0.1.0 ==
+
+Initial release.
+
+Redirect incoming AI-bots to the homepage of OpenAI.
