@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53fb0fdcfa87ec3571f9fa9a1051b9c3",
+    "content-hash": "74feaae447cce52be7e81e67189a714c",
     "packages": [
         {
             "name": "psr/cache",
@@ -57,16 +57,16 @@
         },
         {
             "name": "volkswaigen/volkswaigen",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/VolkswAIgen/VolkswAIgen.git",
-                "reference": "86d3fbc85e4ba25ee9988528f091b5ac12764aad"
+                "reference": "5d2ca5c602effeb44f76fbf4b753a6b34eaee6e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VolkswAIgen/VolkswAIgen/zipball/86d3fbc85e4ba25ee9988528f091b5ac12764aad",
-                "reference": "86d3fbc85e4ba25ee9988528f091b5ac12764aad",
+                "url": "https://api.github.com/repos/VolkswAIgen/VolkswAIgen/zipball/5d2ca5c602effeb44f76fbf4b753a6b34eaee6e6",
+                "reference": "5d2ca5c602effeb44f76fbf4b753a6b34eaee6e6",
                 "shasum": ""
             },
             "require": {
@@ -92,9 +92,9 @@
             ],
             "support": {
                 "issues": "https://github.com/VolkswAIgen/VolkswAIgen/issues",
-                "source": "https://github.com/VolkswAIgen/VolkswAIgen/tree/0.1.1"
+                "source": "https://github.com/VolkswAIgen/VolkswAIgen/tree/0.1.2"
             },
-            "time": "2024-06-25T20:31:06+00:00"
+            "time": "2024-07-12T19:02:59+00:00"
         }
     ],
     "packages-dev": [],
@@ -103,7 +103,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^8.2"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
