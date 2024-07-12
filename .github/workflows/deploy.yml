@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout
+      - name: "Checkout ${GITHUB_REF}"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
