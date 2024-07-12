@@ -20,13 +20,18 @@ declare(strict_types=1);
 namespace VolkswAIgen\DefAI\Integration;
 
 use VolkswAIgen\DefAI\WP as WPInterface;
+use add_filter;
+use get_option;
+use update_option;
+use add_action;
+use wp_redirect;
 
 final class WP implements WPInterface
 {
 
 	public function add_filter(string $name, callable $function)
 	{
-		return add_filter($name. $function);
+		return add_filter($name, $function);
 	}
 
 	public function get_option(string $name, $default = false): mixed
@@ -36,6 +41,16 @@ final class WP implements WPInterface
 
 	public function set_option(string $name, $value)
 	{
-		$this->set_option($name, $value);
+		update_option($name, $value);
+	}
+
+	public function add_action(string $action, callable $function)
+	{
+		add_action($action, $function);
+	}
+
+	public function wp_redirect(string $url, int $code, bool|string $expose)
+	{
+		wp_redirect($url, $code, $expose);
 	}
 }

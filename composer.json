@@ -9,7 +9,7 @@
 	"license": ["GPL-3.0-or-later"],
 	"autoload": {
 		"psr-4": {
-			"Volkswaigen\\DefAI\\": "src/"
+			"VolkswAIgen\\DefAI\\": "src/"
 		}
 	},
 	"authors": [{

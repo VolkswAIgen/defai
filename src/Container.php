@@ -19,6 +19,8 @@ declare(strict_types=1);
 
 namespace VolkswAIgen\DefAI;
 
+use Closure;
+
 final class Container
 {
 	/**
@@ -29,7 +31,7 @@ final class Container
 
 	/**
 	 * @template S of object
-	 * @var array<class-string<S>, \Closure(Container): S
+	 * @var array<class-string<S>, Closure(Container): S
 	 */
 	private array $closures = [];
 	/**

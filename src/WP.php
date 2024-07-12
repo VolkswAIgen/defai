@@ -24,4 +24,8 @@ interface WP
 	public function get_option(string $name, $default = false): mixed;
 
 	public function set_option(string $name, $value);
+
+	public function add_action(string $action, callable $function);
+
+	public function wp_redirect(string $url, int $code, bool|string $expose);
 }

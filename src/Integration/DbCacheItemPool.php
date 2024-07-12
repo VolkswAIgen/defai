@@ -35,7 +35,7 @@ final class DbCacheItemPool implements CacheItemPoolInterface
 
 	public function getItem(string $key): CacheItemInterface
 	{
-		$option = $this->wp->get_option('defai_' . $key);
+		$option = $this->wp->get_option('defai_' . $key, '{"data":[],"expires_at":"2024-05-05"}');
 
 		return DbCacheItem::createFromWpOption($option, $key);
 	}
@@ -67,10 +67,11 @@ final class DbCacheItemPool implements CacheItemPoolInterface
 
 	public function save(CacheItemInterface $item): bool
 	{
+		$value = '';
 		if ($item instanceof DbCacheItem) {
-			$item = $item->getWpOption();
+			$value = $item->getWpOption();
 		}
-		$this->wp->set_option('defai_' . $item->getKey(), $item);
+		$this->wp->set_option('defai_' . $item->getKey(), $value);
 
 		return true;
 	}

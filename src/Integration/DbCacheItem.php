@@ -44,6 +44,9 @@ final class DbCacheItem implements CacheItemInterface
 
 	public function get(): mixed
 	{
+		if (! $this->isHit()) {
+			return null;
+		}
 		return $this->data;
 	}
 

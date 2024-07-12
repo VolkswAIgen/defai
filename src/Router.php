@@ -25,48 +25,25 @@ final class Router
 {
 	private Main $volkswaigen;
 
+	private WP $wp;
 	public function __construct(
-		Main $vokswaigen
+		Main $vokswaigen,
+		WP $wp,
 	) {
 		$this->volkswaigen = $vokswaigen;
+		$this->wp = $wp;
 	}
-	/**
-	 * @param false|array{
-	 *     headers: array,
-	 *     body: string,
-	 *     response: string,
-	 * 	   cookies: array,
-	 *     filename: string
-	 * }|WP_Error $response
-	 * @param array $parsedArgs
-	 * @param string $url
-	 *
-	 * @return false|array{
-	 *      headers: array,
-	 *      body: string,
-	 *      response: string,
-	 *      cookies: array,
-	 *      filename: string
-	 * }|WP_Error
-	 */
-	public function __invoke(mixed $response, array $parsedArgs, string $url): mixed
+
+	public function __invoke(mixed $wp): void
 	{
-		if ($response instanceof WP_Error) {
-			return $response;
+		if (!$this->volkswaigen->isAiBot(
+			$_SERVER['HTTP_USER_AGENT'],
+			$_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'],
+		)) {
+			return;
 		}
 
-		if (! $this->volkswaigen->isAiBot($response, $response)) {
-			return $response;
-		}
-
-		return [
-			'headers' => [
-				'location' => 'https://openai.com',
-			],
-			'body' => '',
-			'response' => '302',
-			'cookies' => [],
-			'filename' => '',
-		];
+		$this->wp->wp_redirect('https://openai.com', 302, false);
+		exit;
 	}
 }

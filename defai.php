@@ -25,7 +25,7 @@
  * License:           GPL v3 or later
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  */
-require_once __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 
 $defai = new \VolkswAIgen\DefAI\DefAI();

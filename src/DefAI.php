@@ -20,7 +20,6 @@ declare(strict_types=1);
 namespace VolkswAIgen\DefAI;
 
 use Psr\Cache\CacheItemPoolInterface;
-use VolkswAIgen\DefAI\Integration\DbCacheItem;
 use VolkswAIgen\DefAI\Integration\DbCacheItemPool;
 use VolkswAIgen\DefAI\Integration\WP as WPImplementation;
 use VolkswAIgen\VolkswAIgen\ListFetcher;
@@ -34,7 +33,10 @@ final class DefAI
 	{
 		$container = new Container();
 		$container->add(Router::class, function(Container $c): Router {
-			return new Router($c->get(Main::class));
+			return new Router(
+				$c->get(Main::class),
+				$c->get(WP::class),
+			);
 		});
 		$container->add(Main::class, function(Container $c): Main {
 			return new Main($c->get(ListFetcher::class));
@@ -52,6 +54,6 @@ final class DefAI
 
 		$wp = $container->get(WP::class);
 
-		$wp->add_filter('pre_http_request', $container->get(Router::class));
+		$wp->add_action('parse_request', $container->get(Router::class));
 	}
 }
