@@ -1,1 +1,9 @@
 readme.txt export-subst
+.editorconfig export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+features export-ignore
+compose.yml export-ignore
+Dockerfile export-ignore
+.github export-ignore
+tests export-ignore
