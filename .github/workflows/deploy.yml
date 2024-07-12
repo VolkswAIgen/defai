@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-dev -a
       - name: Create archive
-        run: git archive -o defai.zip
+        run: git archive -o defai.zip ${GITHUB_REF}
       - name: Inject vendor into ZIP-file
         run: zip -r9 defai.zip vendor
       - name: Create Release
