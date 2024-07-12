@@ -3,6 +3,7 @@
 	"description": "Provide dedicated content just for AI bots.",
 	"type": "wordpress-plugin",
 	"require": {
+		"php": "^8.2",
 		"volkswaigen/volkswaigen": "^0.1.1"
 	},
 	"license": ["GPL-3.0-or-later"],

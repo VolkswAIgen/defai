@@ -1,0 +1,32 @@
+name: Build
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: phive
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-dev -a
+      - name: Create archive
+        run: git archive -o defai.zip
+      - name: Inject vendor into ZIP-file
+        run: zip -r9 defai.zip vendor
+      - name: Create Release
+        uses: ncipollo/release-action@v1.14.0
+        with:
+          artifacts: "defai.zip,"
+          generateReleaseNotes: true
+          makeLatest: true
+
