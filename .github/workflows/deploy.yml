@@ -2,7 +2,7 @@ name: Build
 on:
   push:
     tags:
-      - '*'
+      - '**'
 jobs:
   check:
     runs-on: ubuntu-latest
