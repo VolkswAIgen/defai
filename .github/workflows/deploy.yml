@@ -10,11 +10,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: "Checkout ${GITHUB_REF}"
+      - name: "Checkout ${{ github.ref }}"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${GITHUB_REF}
+          ref: ${{ github.ref }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-dev -a
       - name: Create archive
-        run: git archive -o defai.zip ${GITHUB_REF}
+        run: git archive -o defai.zip ${{ github.ref }}
       - name: Inject vendor into ZIP-file
         run: zip -r9 defai.zip vendor
       - name: Create Release
