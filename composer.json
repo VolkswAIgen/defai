@@ -4,7 +4,7 @@
 	"type": "wordpress-plugin",
 	"require": {
 		"php": "^8.2",
-		"volkswaigen/volkswaigen": "^0.1.1"
+		"volkswaigen/volkswaigen": "^0.1.2"
 	},
 	"license": ["GPL-3.0-or-later"],
 	"autoload": {
