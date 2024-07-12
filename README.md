@@ -20,8 +20,9 @@ but that will be possible to change in future versions.
 Currently the plugin is in review by the WordPress plugin team.
 
 Until it is available on the WordPress plugin-page you can download
-the plugins ZIP-file attached to the latest release and upload that into your
-WordPress installation.
+the plugins ZIP-file attached to the
+[latest release](https://github.com/VolkswAIgen/defai/releases/) and upload
+that into your WordPress installation.
 
 After that, you will have to activate the plugin.
 
