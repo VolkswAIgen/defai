@@ -57,16 +57,16 @@
         },
         {
             "name": "volkswaigen/volkswaigen",
-            "version": "0.1.2",
+            "version": "0.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/VolkswAIgen/VolkswAIgen.git",
-                "reference": "5d2ca5c602effeb44f76fbf4b753a6b34eaee6e6"
+                "reference": "f42ba3a166fdb6fe0bc819c2da5b4991dc4776a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VolkswAIgen/VolkswAIgen/zipball/5d2ca5c602effeb44f76fbf4b753a6b34eaee6e6",
-                "reference": "5d2ca5c602effeb44f76fbf4b753a6b34eaee6e6",
+                "url": "https://api.github.com/repos/VolkswAIgen/VolkswAIgen/zipball/f42ba3a166fdb6fe0bc819c2da5b4991dc4776a7",
+                "reference": "f42ba3a166fdb6fe0bc819c2da5b4991dc4776a7",
                 "shasum": ""
             },
             "require": {
@@ -92,9 +92,9 @@
             ],
             "support": {
                 "issues": "https://github.com/VolkswAIgen/VolkswAIgen/issues",
-                "source": "https://github.com/VolkswAIgen/VolkswAIgen/tree/0.1.2"
+                "source": "https://github.com/VolkswAIgen/VolkswAIgen/tree/0.1.4"
             },
-            "time": "2024-07-12T19:02:59+00:00"
+            "time": "2024-07-18T20:09:19+00:00"
         }
     ],
     "packages-dev": [],
