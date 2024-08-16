@@ -37,8 +37,30 @@ final class Router
 	public function __invoke(mixed $wp): void
 	{
 		if (!$this->volkswaigen->isAiBot(
+		    // This value is taken as is. It is vital that no modification is
+			// done as otherwise the matching might break due to a modified
+			// string.
+			// The useragent as well as the IP-address are nowhere stored,
+			// neither to DB, the filesystem or anywhere else and also not
+			// executed or sent back to the browser in whatever form.
+			// The two values are merely used to match a regex against and then
+			// safely discarded. Therefore sanitizing or escaping does not
+			// really make sense. On the contrary. Sanitizing the values in
+			// terms of modifying them might actually break the further process
+			// as the regex-matching might not work due to the strings having
+			// been modified in critical parts.
+			// The validation part on the other hand is what this whole plugin
+			// is about. Validating that neither IP nor UserAgent match a
+			// certain regex-pattern.
 			$_SERVER['HTTP_USER_AGENT'],
-			$_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'],
+			// We are validating that the passed value is indeed a valid
+			// IP-address. If it is not a valid IP-Address the filter_var will
+			// return false which will break the type on runtime.
+			filter_var(
+				$_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'],
+				FILTER_VALIDATE_IP,
+				FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6 | FILTER_FLAG_GLOBAL_RANGE
+			)
 		)) {
 			return;
 		}
