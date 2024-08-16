@@ -24,8 +24,8 @@ jobs:
         run: composer install --prefer-dist --no-dev -a
       - name: Create archive
         run: |
-          rm -rf extract
-          mkdir extract
+          rm -rf defai
+          mkdir defai
           git archive --prefix="./" --format=tar ${{ github.ref }} . | tar xv -C defai/
           find defai -type f -exec sed -i "s/$Format:%(describe)$/${{ github.ref }}/" {} \;
           zip defai.zip defai
