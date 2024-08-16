@@ -25,6 +25,8 @@
  * License:           GPL v3 or later
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  */
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 require __DIR__ . '/vendor/autoload.php';
 
 
