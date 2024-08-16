@@ -29,6 +29,7 @@ jobs:
           git archive --prefix="./" --format=tar ${{ github.ref }} . | tar xv -C defai/
           find defai -type f -exec sed -i 's/\$Format:%(describe)\$/${{ github.ref }}/' {} \;
           mv vendor defai/
+          rm defai/composer.json defai/composer.lock
           zip -r defai.zip defai
           rm -rf defai
       - name: Create Release
