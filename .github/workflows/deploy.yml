@@ -28,10 +28,9 @@ jobs:
           mkdir defai
           git archive --prefix="./" --format=tar ${{ github.ref }} . | tar xv -C defai/
           find defai -type f -exec sed -i 's/\$Format:%(describe)\$/${{ github.ref }}/' {} \;
+          mv vendor defai/
           zip -r defai.zip defai
           rm -rf defai
-      - name: Inject vendor into ZIP-file
-        run: zip -r9 defai.zip vendor
       - name: Create Release
         uses: ncipollo/release-action@v1.14.0
         with:
