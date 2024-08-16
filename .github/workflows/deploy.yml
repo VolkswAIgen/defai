@@ -27,7 +27,7 @@ jobs:
           rm -rf defai
           mkdir defai
           git archive --prefix="./" --format=tar ${{ github.ref }} . | tar xv -C defai/
-          find defai -type f -exec sed -i "" 's/%tag%/${{ github.ref }}/' {} \;
+          find defai -type f -exec sed -i 's/%tag%/${{ github.ref_name }}/' {} \;
           cat defai/readme.txt
           mv vendor defai/
           rm defai/composer.json defai/composer.lock
