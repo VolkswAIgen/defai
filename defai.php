@@ -16,7 +16,7 @@
  * Plugin Name:       defAI
  * Plugin URI:        https://defai.volkswAIgen.org
  * Description:       Provide dedicated content just for AI bots.
- * Version:           $Format:%(describe)$
+ * Version:           %tag%
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Andreas Heigl
