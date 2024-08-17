@@ -1,16 +1,15 @@
 services:
   wp:
-    image: wordpress:${WORDPRESS_VERSION:-6.5}-php${PHP_VERSION:-8.3}
+    image: defai_test:${WORDPRESS_VERSION:-6.6}-${PHP_VERSION:-8.4-rc}
     build:
-      context: .
+      context: .docker/wp
       dockerfile: Dockerfile
       args:
-        PHP_VERSION: ${PHP_VERSION:-8.3}
-        WORDPRESS_VERSION: ${WORDPRESS_VERSION:-6.4}
-    ports:
-      - 80:80 # change ip if required
+        PHP_VERSION: ${PHP_VERSION:-8.4-rc}
+        WORDPRESS_VERSION: ${WORDPRESS_VERSION:-6.6}
     volumes:
       - .:/var/www/html/wp-content/plugins/defai
+      - wordpress:/var/www/html
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: "wordpress"
@@ -23,19 +22,17 @@ services:
     links:
       - db
 
-  wpcli:
-    image: wordpress:cli
+  nginx:
+    image: nginx
     volumes:
+      - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www/html/wp-content/plugins/defai
       - wordpress:/var/www/html
-      - .:/var/www/html/wp-content/plugins/authldap
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_NAME: "wordpress"
-      WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: "wppasswd"
-    user: "33:33"
+    ports:
+      - 80:80
+    links:
+      - wp:wp
     depends_on:
-      - db
       - wp
 
   db:

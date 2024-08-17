@@ -19,5 +19,9 @@
 	}],
 	"config": {
 		"sort-packages": true
+	},
+	"require-dev": {
+		"behat/behat": "^3.14",
+		"webmozart/assert": "^1.11"
 	}
 }
