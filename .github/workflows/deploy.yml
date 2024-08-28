@@ -32,11 +32,20 @@ jobs:
           mv vendor defai/
           rm defai/composer.json defai/composer.lock
           zip -r defai.zip defai
-          rm -rf defai
       - name: Create Release
         uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: "defai.zip"
           generateReleaseNotes: true
           makeLatest: true
+      - name: WordPress Plugin Deploy
+        id: deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        with:
+          generate-zip: false
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          BUILD_DIR: defai
+          SLUG: defai
 
