@@ -9,3 +9,4 @@ Dockerfile export-ignore
 tests export-ignore
 README.md export-ignore
 CNAME export-ignore
+.docker export-ignore
